@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Нурас & Айыма | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f2e9;
+    color:#51463a;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+}
+
+body.locked{
+    overflow:hidden;
+}
+
+:root{
+    --cream:#f7f2e9;
+    --ivory:#fffdf8;
+    --gold:#b7955a;
+    --gold2:#8e6d3c;
+    --brown:#51463a;
+    --soft:#817467;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #fffdf9 0%,
+        #f7f2e9 65%,
+        #eee4d4 100%
+    );
+
+    transition:1.2s ease;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    width:90%;
+    max-width:500px;
+    text-align:center;
+}
+
+.intro-top{
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:35px;
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope{
+    width:330px;
+    height:220px;
+    max-width:100%;
+    margin:auto;
+    position:relative;
+    cursor:pointer;
+    perspective:1000px;
+
+    filter:drop-shadow(
+        0 25px 30px rgba(60,40,20,.18)
+    );
+
+    transition:.5s ease;
+}
+
+.envelope:hover{
+    transform:translateY(-8px);
+}
+
+.envelope-body{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fffdf9,
+        #e8dcc8
+    );
+
+    border:1px solid rgba(183,149,90,.7);
+    border-radius:4px;
+}
+
+.envelope-body:before{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-bottom:115px solid rgba(196,172,130,.25);
+}
+
+.envelope-flap{
+    position:absolute;
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-top:120px solid #e5d8c3;
+
+    transform-origin:top center;
+
+    transition:
+    transform 1s cubic-bezier(.65,0,.35,1);
+
+    z-index:5;
+}
+
+.envelope.open .envelope-flap{
+    transform:rotateX(180deg);
+}
+
+.envelope-names{
+    position:absolute;
+    top:48%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    white-space:nowrap;
+
+    color:var(--gold);
+
+    font-family:'Great Vibes',cursive;
+    font-size:43px;
+
+    z-index:6;
+}
+
+.seal{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-family:'Great Vibes',cursive;
+    font-size:23px;
+
+    background:
+    radial-gradient(
+        circle,
+        #c9a968,
+        #8f6c37
+    );
+
+    border:2px solid rgba(255,255,255,.6);
+
+    z-index:10;
+
+    transition:.5s;
+}
+
+.envelope.open .seal{
+    opacity:0;
+}
+
+.intro-bottom{
+    margin-top:38px;
+
+    color:#7b6d5e;
+
+    font-size:10px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:.45}
+    50%{opacity:1}
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+#site{
+    opacity:0;
+    visibility:hidden;
+    transition:1.2s ease;
+}
+
+#site.show{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    background:
+    linear-gradient(
+        rgba(30,20,10,.22),
+        rgba(30,20,10,.42)
+    ),
+    url("couple.jpg")
+    center/cover no-repeat;
+
+    color:white;
+
+    text-align:center;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:30px;
+}
+
+.hero-small{
+    font-size:11px;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.names{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(70px,13vw,145px);
+    line-height:.75;
+    text-shadow:0 5px 25px rgba(0,0,0,.35);
+}
+
+.and{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    margin:18px 0;
+}
+
+.hero-date{
+    margin-top:35px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    letter-spacing:7px;
+}
+
+.scroll{
+    position:absolute;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+
+    opacity:.8;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.label{
+    text-align:center;
+    color:var(--gold);
+
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.title{
+    text-align:center;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:clamp(42px,8vw,65px);
+
+    font-weight:400;
+
+    margin-bottom:25px;
+}
+
+.line{
+    width:70px;
+    height:1px;
+
+    background:var(--gold);
+
+    margin:25px auto;
+}
+
+.ornament{
+    text-align:center;
+    color:var(--gold);
+    font-size:18px;
+    letter-spacing:8px;
+}
+
+
+/* =========================
+   INVITATION
+========================= */
+
+.invitation{
+    background:var(--ivory);
+    text-align:center;
+}
+
+.invitation-text{
+    max-width:680px;
+    margin:auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+    line-height:1.8;
+
+    color:var(--soft);
+}
+
+.guest{
+    margin-top:30px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:var(--gold);
+
+    font-size:50px;
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+.date-section{
+    background:var(--cream);
+    text-align:center;
+}
+
+.date-card{
+    max-width:580px;
+    margin:45px auto 0;
+
+    border:1px solid rgba(183,149,90,.55);
+
+    padding:55px 20px;
+
+    position:relative;
+}
+
+.date-card:before,
+.date-card:after{
+    content:"✦";
+    position:absolute;
+    color:var(--gold);
+}
+
+.date-card:before{
+    top:15px;
+    left:18px;
+}
+
+.date-card:after{
+    right:18px;
+    bottom:15px;
+}
+
+.day{
+    font-family:'Cormorant Garamond',serif;
+    font-size:110px;
+    line-height:.8;
+    color:var(--gold);
+    font-weight:300;
+}
+
+.month{
+    margin-top:25px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+}
+
+.year{
+    margin-top:10px;
+
+    color:var(--soft);
+
+    font-size:12px;
+    letter-spacing:4px;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+    max-width:650px;
+    margin:50px auto 0;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+}
+
+.time{
+    border:1px solid rgba(183,149,90,.35);
+
+    padding:20px 5px;
+
+    background:rgba(255,255,255,.35);
+}
+
+.number{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    color:var(--gold);
+}
+
+.time-label{
+    font-size:8px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--soft);
+}
+
+
+/* =========================
+   FULL PHOTO
+========================= */
+
+.full-photo{
+    padding:0;
+}
+
+.full-photo img{
+    width:100%;
+    height:min(90vh,800px);
+    object-fit:cover;
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story{
+    background:var(--ivory);
+    text-align:center;
+}
+
+.story-text{
+    max-width:650px;
+    margin:auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:24px;
+    line-height:1.8;
+
+    color:var(--soft);
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:var(--cream);
+}
+
+.gallery-grid{
+    margin-top:45px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+}
+
+.gallery-item{
+    overflow:hidden;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    min-height:350px;
+
+    object-fit:cover;
+
+    transition:.7s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.05);
+}
+
+.gallery-item.big{
+    grid-column:span 2;
+}
+
+.gallery-item.big img{
+    min-height:450px;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location{
+    background:var(--ivory);
+    text-align:center;
+}
+
+.restaurant{
+    font-family:'Cormorant Garamond',serif;
+    font-size:45px;
+}
+
+.city{
+    margin-top:10px;
+
+    color:var(--gold);
+
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.clock{
+    margin-top:30px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:35px;
+}
+
+.address{
+    margin-top:15px;
+
+    font-size:13px;
+
+    color:var(--soft);
+}
+
+.map{
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold2);
+
+    text-decoration:none;
+
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+.map:hover{
+    background:var(--gold);
+    color:white;
+}
+
+
+/* =========================
+   HOSTS
+========================= */
+
+.hosts{
+    background:var(--cream);
+    text-align:center;
+}
+
+.host-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    color:var(--soft);
+}
+
+.host-names{
+    margin-top:20px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:50px;
+
+    color:var(--gold);
+}
+
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp{
+    min-height:500px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        rgba(35,25,15,.48),
+        rgba(35,25,15,.58)
+    ),
+    url("wedding.jpg")
+    center/cover no-repeat;
+}
+
+.rsvp .title{
+    color:white;
+}
+
+.rsvp-text{
+    max-width:600px;
+
+    margin:auto;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+    line-height:1.7;
+}
+
+.phone{
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 35px;
+
+    border:1px solid white;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#eee5d5;
+
+    text-align:center;
+
+    padding:75px 20px;
+}
+
+.footer-names{
+    font-family:'Great Vibes',cursive;
+
+    color:var(--gold);
+
+    font-size:62px;
+}
+
+.footer-date{
+    margin-top:10px;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--soft);
+}
+
+.heart{
+    margin-top:30px;
+
+    color:var(--gold);
+
+    font-size:20px;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:52px;
+    height:52px;
+
+    z-index:1000;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.7);
+
+    background:rgba(120,90,50,.78);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.music.playing{
+    animation:musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse{
+
+    0%{
+        box-shadow:
+        0 0 0 0 rgba(183,149,90,.6);
+    }
+
+    70%{
+        box-shadow:
+        0 0 0 13px rgba(183,149,90,0);
+    }
+
+    100%{
+        box-shadow:
+        0 0 0 0 rgba(183,149,90,0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .envelope{
+        width:290px;
+        height:195px;
+    }
+
+    .envelope-flap{
+        border-left-width:145px;
+        border-right-width:145px;
+        border-top-width:105px;
+    }
+
+    .envelope-body:before{
+        border-left-width:145px;
+        border-right-width:145px;
+        border-bottom-width:100px;
+    }
+
+    .envelope-names{
+        font-size:37px;
+    }
+
+    .names{
+        font-size:75px;
+    }
+
+    .hero-date{
+        font-size:19px;
+        letter-spacing:4px;
+    }
+
+    section{
+        padding:70px 18px;
+    }
+
+    .invitation-text,
+    .story-text,
+    .rsvp-text{
+        font-size:21px;
+    }
+
+    .countdown{
+        gap:6px;
+    }
+
+    .number{
+        font-size:31px;
+    }
+
+    .time-label{
+        font-size:7px;
+        letter-spacing:1px;
+    }
+
+    .restaurant{
+        font-size:35px;
+    }
+
+    .gallery-grid{
+        gap:7px;
+    }
+
+    .gallery-item img{
+        min-height:230px;
+    }
+
+    .gallery-item.big img{
+        min-height:280px;
+    }
+
+    .footer-names{
+        font-size:50px;
+    }
+}
+
+</style>
+</head>
+
+
+<body class="locked">
+
+
+<!-- =====================================================
+     ENVELOPE
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-top">
+            Үйлөнүү тоюна чакыруу
+        </div>
+
+        <div
+            class="envelope"
+            id="envelope"
+            onclick="openInvitation()"
+        >
+
+            <div class="envelope-body"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-names">
+                Нурас & Айыма
+            </div>
+
+            <div class="seal">
+                N&A
+            </div>
+
+        </div>
+
+        <div class="intro-bottom">
+            Чакыруу баракчасын ачуу үчүн басыңыз
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<div id="site">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Биздин өзгөчө күнүбүз
+        </div>
+
+        <div class="names">
+            Нурас
+        </div>
+
+        <div class="and">
+            &
+        </div>
+
+        <div class="names">
+            Айыма
+        </div>
+
+        <div class="hero-date">
+            27 · 01 · 2027
+        </div>
+
+    </div>
+
+    <div class="scroll">
+        төмөн жылдырыңыз
+    </div>
+
+</section>
+
+
+<!-- INVITATION -->
+
+<section class="invitation">
+
+    <div class="container">
+
+        <div class="label">
+            Урматтуу коноктор
+        </div>
+
+        <h2 class="title">
+            Сиздерди күтөбүз
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="invitation-text">
+            Тойго келип конок болуп кетиңиздер,
+            эки жашка каалоо-тилек тилеп,
+            биздин эң бактылуу күнүбүзгө
+            күбө болуп кетүүгө чакырабыз!
+        </p>
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <div class="guest">
+            Салия & Бегимжан
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DATE -->
+
+<section class="date-section">
+
+    <div class="container">
+
+        <div class="label">
+            Той күнү
+        </div>
+
+        <h2 class="title">
+            Календарда белгилеп коюңуз
+        </h2>
+
+        <div class="date-card">
+
+            <div class="day">
+                27
+            </div>
+
+            <div class="month">
+                Январь
+            </div>
+
+            <div class="year">
+                2027
+            </div>
+
+        </div>
+
+
+        <!-- COUNTDOWN -->
+
+        <div class="countdown">
+
+            <div class="time">
+
+                <div
+                    class="number"
+                    id="days"
+                >
+                    00
+                </div>
+
+                <div class="time-label">
+                    Күн
+                </div>
+
+            </div>
+
+
+            <div class="time">
+
+                <div
+                    class="number"
+                    id="hours"
+                >
+                    00
+                </div>
+
+                <div class="time-label">
+                    Саат
+                </div>
+
+            </div>
+
+
+            <div class="time">
+
+                <div
+                    class="number"
+                    id="minutes"
+                >
+                    00
+                </div>
+
+                <div class="time-label">
+                    Мүнөт
+                </div>
+
+            </div>
+
+
+            <div class="time">
+
+                <div
+                    class="number"
+                    id="seconds"
+                >
+                    00
+                </div>
+
+                <div class="time-label">
+                    Секунд
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHOTO -->
+
+<section class="full-photo">
+
+    <img
+        src="couple2.jpg"
+        alt="Нурас жана Айыма"
+    >
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story">
+
+    <div class="container">
+
+        <div class="label">
+            Биздин күн
+        </div>
+
+        <h2 class="title">
+            Эки жүрөк — бир тагдыр
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="story-text">
+            Бул күн биздин жашообуздагы эң маанилүү
+            жана унутулгус күндөрдүн бири болот.
+            Жакындарыбыздын жылуу каалоо-тилектери
+            менен жаңы жашоого кадам таштайбыз.
+        </p>
+
+        <div class="ornament">
+            ✦ ✦ ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery">
+
+    <div class="container">
+
+        <div class="label">
+            Биздин көз ирмемдер
+        </div>
+
+        <h2 class="title">
+            Сүйүү менен
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item big">
+                <img
+                    src="couple.jpg"
+                    alt="Wedding couple"
+                >
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="rings.jpg"
+                    alt="Wedding rings"
+                >
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img
+                    src="wedding.jpg"
+                    alt="Wedding"
+                >
+
+            </div>
+
+            <div class="gallery-item big">
+
+                <img
+                    src="decoration.jpg"
+                    alt="Wedding decoration"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section class="location">
+
+    <div class="container">
+
+        <div class="label">
+            Тойдун дареги
+        </div>
+
+        <h2 class="title">
+            Сиздерди кайда күтөбүз?
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="restaurant">
+            Ресторан “Frunze”
+        </div>
+
+        <div class="city">
+            Бишкек шаары
+        </div>
+
+        <div class="clock">
+            15:00
+        </div>
+
+        <div class="address">
+            Дарек жакында кошулат
+        </div>
+
+        <a
+            href="#"
+            class="map"
+            onclick="
+                alert('Дарек жакында кошулат');
+                return false;
+            "
+        >
+            Картадан көрүү
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- HOSTS -->
+
+<section class="hosts">
+
+    <div class="container">
+
+        <div class="label">
+            Той ээлери
+        </div>
+
+        <h2 class="title">
+            Урматтоо менен
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="host-text">
+            Той ээлери
+        </div>
+
+        <div class="host-names">
+            Улан & Дамира
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RSVP -->
+
+<section class="rsvp">
+
+    <div class="container">
+
+        <div class="label">
+            Биз үчүн маанилүү
+        </div>
+
+        <h2 class="title">
+            Сиздердин келгениңиздер
+        </h2>
+
+        <div class="line"></div>
+
+        <p class="rsvp-text">
+            Биздин кубанычыбызды бөлүшүп,
+            ушул өзгөчө күнүбүздө
+            жаныбызда болуңуздар!
+        </p>
+
+        <a
+            href="tel:+996"
+            class="phone"
+        >
+            Байланышуу
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-names">
+        Нурас & Айыма
+    </div>
+
+    <div class="footer-date">
+        27 · 01 · 2027
+    </div>
+
+    <div class="heart">
+        ♡
+    </div>
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
+<button
+    class="music"
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    ♪
+</button>
+
+
+<!-- Hidden YouTube player -->
+
+<div
+    id="youtube-player"
+    style="
+        position:fixed;
+        width:1px;
+        height:1px;
+        left:-100px;
+        bottom:-100px;
+        opacity:0;
+        pointer-events:none;
+    "
+></div>
+
+
+<script>
+
+/* =====================================================
+   OPEN ENVELOPE
+===================================================== */
+
+let player = null;
+
+function openInvitation(){
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const intro =
+        document.getElementById("intro");
+
+    const site =
+        document.getElementById("site");
+
+    envelope.classList.add("open");
+
+    setTimeout(function(){
+
+        intro.classList.add("hide");
+
+        site.classList.add("show");
+
+        document.body.classList.remove("locked");
+
+        startMusic();
+
+    },900);
+
+}
+
+
+/* =====================================================
+   YOUTUBE
+===================================================== */
+
+function onYouTubeIframeAPIReady(){
+
+    player = new YT.Player(
+        "youtube-player",
+        {
+
+            height:"1",
+            width:"1",
+
+            videoId:"qSxyffSB7wA",
+
+            playerVars:{
+                autoplay:0,
+                controls:0,
+                loop:1,
+                playlist:"qSxyffSB7wA",
+                playsinline:1,
+                rel:0
+            },
+
+            events:{
+                onReady:function(){
+
+                    console.log(
+                        "Музыка даяр"
+                    );
+
+                }
+            }
+
+        }
+    );
+
+}
+
+
+function startMusic(){
+
+    if(
+        player &&
+        typeof player.playVideo === "function"
+    ){
+
+        player.playVideo();
+
+        document
+        .getElementById("musicButton")
+        .classList.add("playing");
+
+    }
+
+}
+
+
+function toggleMusic(){
+
+    if(!player) return;
+
+    const button =
+        document.getElementById("musicButton");
+
+    const state =
+        player.getPlayerState();
+
+    if(
+        state ===
+        YT.PlayerState.PLAYING
+    ){
+
+        player.pauseVideo();
+
+        button.classList.remove("playing");
+
+    }
+    else{
+
+        player.playVideo();
+
+        button.classList.add("playing");
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD YOUTUBE API
+===================================================== */
+
+const youtube =
+    document.createElement("script");
+
+youtube.src =
+    "https://www.youtube.com/iframe_api";
+
+document.head.appendChild(youtube);
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+const weddingDate =
+    new Date(
+        "2027-01-27T15:00:00+06:00"
+    ).getTime();
+
+
+function countdown(){
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        weddingDate - now;
+
+
+    if(distance <= 0){
+
+        document.getElementById("days")
+        .innerText="00";
+
+        document.getElementById("hours")
+        .innerText="00";
+
+        document.getElementById("minutes")
+        .innerText="00";
+
+        document.getElementById("seconds")
+        .innerText="00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000*60*60*24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000*60*60*24))
+            /
+            (1000*60*60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000*60*60))
+            /
+            (1000*60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000*60))
+            /
+            1000
+        );
+
+
+    document.getElementById("days")
+    .innerText =
+    String(days).padStart(2,"0");
+
+
+    document.getElementById("hours")
+    .innerText =
+    String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes")
+    .innerText =
+    String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds")
+    .innerText =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+countdown();
+
+setInterval(
+    countdown,
+    1000
+);
+
+</script>
+
+</body>
+</html>
